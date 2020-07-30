@@ -31,8 +31,8 @@
   
   <% } %>
 
-  <div class="tag_box shadow_box" id="tags_list"></div>
-  <div class="category_box shadow_box" id="categories_list"></div>
+  <div class="tag_box shadow_box" id="tag_box"></div>
+  <div class="category_box shadow_box" id="category_box"></div>
 
   <script>
       tags_name = new Array();
@@ -49,7 +49,7 @@
       tags_path.sort();
       for (var i = 0; i < tags_name.length; i ++)
       {
-        $("#tags_list").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+        $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
       }
 
 
@@ -67,7 +67,7 @@
       categories_path.sort();
       for (var i = 0; i < categories_name.length; i ++)
       {
-        $("#categories_list").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+        $("#category_box").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
       }
   </script>
 

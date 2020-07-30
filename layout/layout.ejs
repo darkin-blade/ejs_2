@@ -12,7 +12,7 @@
   <%- css('css/main') %>
 </head>
 
-<body>
+<body onload="my_load()" onresize="my_resize()">
   <div class="web_name_box">
     <a class="web_name" href="<%- url_for(theme.menu.Home) %>"><%= config.title %></a>
   </div>
