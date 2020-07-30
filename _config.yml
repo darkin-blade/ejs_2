@@ -1,0 +1,17 @@
+menu:
+  Home: /
+  Archives: /archives
+  Github: https://github.com/NiaBie
+  Link: /friends
+  Knife: /knife
+  Tags: /tags
+  Search: /search/search.html
+  Categories: /categories
+
+debug:
+  enable: false
+
+latex: # 只能够通过在md中设置latex = 0来关闭,默认开启mathjax,不会受站点配置文件控制
+  mathjax: https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full
+  # mathjax: https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+  katex: https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex

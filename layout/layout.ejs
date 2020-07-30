@@ -1,0 +1,25 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  <%- css('css/main') %>
+</head>
+
+<body>
+  <div class="web_name_box">
+    <span class="web_name"><%= config.title %></span>
+  </div>
+
+  <%- partial('partial/header') %>
+
+  <%- body %>
+</body>
+
+</html>

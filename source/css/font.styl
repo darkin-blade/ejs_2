@@ -1,0 +1,33 @@
+/* 文字样式 */
+
+@font-face {
+  font-family: 'varela';
+  src: url('/font/VarelaRound.ttf');
+}
+
+.web_name {
+  /* 网站名 */
+  transition-duration: 0.5s;
+  font-size: 55px;
+  font-weight: bold;
+  font-family: 'varela';
+  cursor: pointer;
+  
+  color: var(--web);
+  text-decoration: none;
+  text-shadow: 0px 0px 2px #000;
+
+  &:hover {
+    text-shadow: 0px 0px 4px #000;
+  }
+}
+
+.post_title {
+  /* 文章标题 */
+  float: left;
+}
+
+.post_date {
+  /* 文章日期 */
+  float: right;
+}
