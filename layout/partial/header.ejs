@@ -2,10 +2,11 @@
 
 <div class="menu_box shadow_box">
   <div class="menu_item_box left" id="menu_preview">preview</div>
-  <div class="menu_item_box left">tags</div>
-  <div class="menu_item_box left">categories</div>
-  <div class="menu_item_box left">archive</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+  <div class="menu_item_box left" id="menu_archive">archive</div>
   <div class="menu_item_box right" id="menu_next">next</div>
+
   <% if (page && page.posts && (!is_post())) { %>
     <!-- 不是文章页 -->
     <% if (page.total > 1) { %>
@@ -29,4 +30,45 @@
     <% } %>
   
   <% } %>
+
+  <div class="tag_box shadow_box" id="tags_list"></div>
+  <div class="category_box shadow_box" id="categories_list"></div>
+
+  <script>
+      tags_name = new Array();
+      tags_path = new Array();
+
+      '<% site.tags.forEach(function (tag) { %>'
+        var temp = '<%- tag.name %>';
+        tags_name.push(temp);
+        temp = '<%- tag.path %>';
+        tags_path.push(temp);
+      '<% }) %>'
+      // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+      tags_name.sort();
+      tags_path.sort();
+      for (var i = 0; i < tags_name.length; i ++)
+      {
+        $("#tags_list").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+      }
+
+
+      categories_name = new Array();
+      categories_path = new Array();
+
+      '<% site.categories.forEach(function (tag) { %>'
+        var temp = '<%- tag.name %>';
+        categories_name.push(temp);
+        temp = '<%- tag.path %>';
+        categories_path.push(temp);
+      '<% }) %>'
+      // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+      categories_name.sort();
+      categories_path.sort();
+      for (var i = 0; i < categories_name.length; i ++)
+      {
+        $("#categories_list").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+      }
+  </script>
+
 </div>
