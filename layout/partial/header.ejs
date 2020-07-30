@@ -1,4 +1,32 @@
 <!-- 顶部菜单栏 -->
 
 <div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left">tags</div>
+  <div class="menu_item_box left">categories</div>
+  <div class="menu_item_box left">archive</div>
+  <div class="menu_item_box right" id="menu_next">next</div>
+  <% if (page && page.posts && (!is_post())) { %>
+    <!-- 不是文章页 -->
+    <% if (page.total > 1) { %>
+      <!-- 上一页 -->
+      <% if (page.prev != 0) { %>
+        <script>
+          $("#menu_preview").click(function () {
+            location = '<%= url_for(page.prev_link) %>';
+          });
+          </script>
+        <% } %>
+        <!-- 下一页 -->
+        <% if (page.next != 0) { %>
+        <script>
+            $("#menu_next").click(function () {
+              location = '<%= url_for(page.next_link) %>';
+            });
+        </script>
+        <% } %>
+  
+    <% } %>
+  
+  <% } %>
 </div>
