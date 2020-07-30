@@ -35,6 +35,23 @@ function my_load() {
     switch_box(category_box, 0);
   });
 
+  var menu_archive = document.getElementById("menu_archive");
+  menu_archive.addEventListener("click", function() {
+    window.location.href = "/archives";
+  });
+
+  var menu_guide = document.getElementById("menu_guide");
+  var guide_box = document.getElementById("guide_box");
+  menu_guide.addEventListener("click", function() {
+    var right = $(guide_box).css("right");
+    console.log(right);
+    if (right == "-400px") {
+      $(guide_box).css("right", "0px");
+    } else {
+      $(guide_box).css("right", "-400px");
+    }
+  });
+
   // 获取窗口初始参数
 
   cur_width = document.body.clientWidth;
