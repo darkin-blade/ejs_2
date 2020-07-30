@@ -51,6 +51,7 @@
   background-color: var(--text_3);
 
   position: fixed;
+  overflow: hidden;
   top: 0px;
 }
 
@@ -73,6 +74,20 @@
   }
 }
 
+.search_input_box {
+  /* 搜索框的外栏 */
+  height: 30px;
+  width: 250px;
+  padding-top: 15px;
+
+  text-align: center;
+  font-family: 'varela';
+  color: var(--web);
+  font-weight: bold;
+
+  display: block;
+} 
+
 .tag_box,
 .category_box {
   position: fixed;
@@ -80,6 +95,19 @@
   width: 600px;
   padding: 30px;
   display: none;
+}
+
+.search_result_box {
+  /* 搜索结果框 */
+  left: 450px;
+  position: fixed;
+  top: 70px;
+  width: 600px;
+  padding: 30px;
+  
+  overflow-y: scroll;
+  max-height: 700px;
+  display: block;
 }
 
 .tag_box {

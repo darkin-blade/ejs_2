@@ -4,73 +4,85 @@
   <div class="menu_item_box left" id="menu_preview">preview</div>
   <div class="menu_item_box left" id="menu_tags">tags</div>
   <div class="menu_item_box left" id="menu_categories">categories</div>
-  <div class="menu_item_box left" id="menu_archive">archive</div>
+
+  <div class="search_input_box left">
+    <input type="search" placeholder="input keywords" id="search_input" class="search_input">
+  </div>
+
   <div class="menu_item_box right" id="menu_next">next</div>
   <div class="menu_item_box right" id="menu_guide">guide</div>
+  <div class="menu_item_box right" id="menu_archive">archive</div>
+</div>
 
-  <% if (page && page.posts && (!is_post())) { %>
-    <!-- 不是文章页 -->
-    <% if (page.total > 1) { %>
-      <!-- 上一页 -->
-      <% if (page.prev != 0) { %>
-        <script>
-          $("#menu_preview").click(function () {
-            location = '<%= url_for(page.prev_link) %>';
-          });
-          </script>
-        <% } %>
-        <!-- 下一页 -->
-        <% if (page.next != 0) { %>
-        <script>
-            $("#menu_next").click(function () {
-              location = '<%= url_for(page.next_link) %>';
-            });
+<div class="tag_box shadow_box" id="tag_box"></div>
+<div class="category_box shadow_box" id="category_box"></div>
+<div class="guide_box shadow_box" id="guide_box"></div>
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+<% if (page && page.posts && (!is_post())) { %>
+  <!-- 不是文章页 -->
+  <% if (page.total > 1) { %>
+    <!-- 上一页 -->
+    <% if (page.prev != 0) { %>
+      <script>
+        $("#menu_preview").click(function () {
+          location = '<%= url_for(page.prev_link) %>';
+        });
         </script>
-        <% } %>
-  
-    <% } %>
-  
+      <% } %>
+      <!-- 下一页 -->
+      <% if (page.next != 0) { %>
+      <script>
+          $("#menu_next").click(function () {
+            location = '<%= url_for(page.next_link) %>';
+          });
+      </script>
+      <% } %>
+
   <% } %>
 
-  <div class="tag_box shadow_box" id="tag_box"></div>
-  <div class="category_box shadow_box" id="category_box"></div>
-  <div class="guide_box shadow_box" id="guide_box"></div>
+<% } %>
 
-  <script>
-      tags_name = new Array();
-      tags_path = new Array();
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
 
-      '<% site.tags.forEach(function (tag) { %>'
-        var temp = '<%- tag.name %>';
-        tags_name.push(temp);
-        temp = '<%- tag.path %>';
-        tags_path.push(temp);
-      '<% }) %>'
-      // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
-      tags_name.sort();
-      tags_path.sort();
-      for (var i = 0; i < tags_name.length; i ++)
-      {
-        $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
-      }
+  '<% site.tags.forEach(function (tag) { %>'
+    var temp = '<%- tag.name %>';
+    tags_name.push(temp);
+    temp = '<%- tag.path %>';
+    tags_path.push(temp);
+  '<% }) %>'
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
 
 
-      categories_name = new Array();
-      categories_path = new Array();
+  categories_name = new Array();
+  categories_path = new Array();
 
-      '<% site.categories.forEach(function (tag) { %>'
-        var temp = '<%- tag.name %>';
-        categories_name.push(temp);
-        temp = '<%- tag.path %>';
-        categories_path.push(temp);
-      '<% }) %>'
-      // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
-      categories_name.sort();
-      categories_path.sort();
-      for (var i = 0; i < categories_name.length; i ++)
-      {
-        $("#category_box").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
-      }
-  </script>
+  '<% site.categories.forEach(function (tag) { %>'
+    var temp = '<%- tag.name %>';
+    categories_name.push(temp);
+    temp = '<%- tag.path %>';
+    categories_path.push(temp);
+  '<% }) %>'
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
 
-</div>
+<script>
+  // TODO 搜索
+  my_search("/search.xml", "search_input", "search_result_list");
+</script>
