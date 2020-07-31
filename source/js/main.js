@@ -1,4 +1,5 @@
 var cur_width = 0;
+var show_guide = -1;
 
 function my_load() {
   console.log("load");
@@ -45,16 +46,41 @@ function my_load() {
   menu_guide.addEventListener("click", function() {
     var right = $(guide_box).css("right");
     console.log(right);
-    if (right == "-400px") {
-      $(guide_box).css("right", "0px");
+    if (show_guide == -1) {
+      if (right == "-400px") {
+        $(guide_box).css("right", "0px");
+        show_guide = 1;
+      } else {
+        $(guide_box).css("right", "-400px");
+        show_guide = 0;
+      }
     } else {
-      $(guide_box).css("right", "-400px");
+      if (show_guide == 0) {
+        $(guide_box).css("right", "0px");
+        show_guide = 1;
+      } else {
+        $(guide_box).css("right", "-400px");
+        show_guide = 0;
+      }
     }
+  });
+
+  var search_input = document.getElementById("search_input");
+  var search_result_box = document.getElementById("search_result_box");
+  search_input.addEventListener("focus", function() {
+    switch_box(search_result_box, 1);
+  });
+  search_input.addEventListener("blur", function() {
+    switch_box(search_result_box, 0);
   });
 
   // 获取窗口初始参数
 
   cur_width = document.body.clientWidth;
+  
+  // 搜索功能
+
+  my_search("/search.xml", "search_input", "search_result_list");
 }
 
 function switch_box(box, mode) {
