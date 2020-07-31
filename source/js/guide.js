@@ -11,7 +11,7 @@ var my_guide = new Array();
 // 创建对象
 function create_guide()
 {
-  var guide_box = document.getElementsByClassName("guide_box")[0];
+  var guide_list_box = document.getElementsByClassName("guide_list_box")[0];
 
   var guide_title = document.createElement("a");// 跳转至标题
   guide_title.innerText = document.getElementById("post_title").innerText;
@@ -33,14 +33,14 @@ function create_guide()
     right_guide.appendChild(temp_a);
   }
   
-  guide_box.appendChild(guide_title);
+  guide_list_box.appendChild(guide_title);
   document.querySelector("#guide_title").onclick = function() {
     document.querySelector("#post_title").scrollIntoView({
       block: "start",
       behavior: "smooth"
     });
   };
-  guide_box.appendChild(right_guide);
+  guide_list_box.appendChild(right_guide);
   for (var i = 0; i < document.h_index; i ++) {
     document.querySelector("#guide_" + i).setAttribute("onclick", "add_scroll(" + i + ")");
   }

@@ -121,11 +121,44 @@
 .guide_box {
   /* 附加导航 */
   transition-duration: 0.5s;
-  height: 100%;
+  height: calc(100% - 70px);
   top: 70px;
   right: -400px;
   width: 400px;
   position: fixed;
 
-  display: block;
+  background: var(--shadow_2);
+  display: flex;
+  flex-direction: column;
+}
+
+.tag_list_box,
+.category_list_box {
+  overflow-y: scroll;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+}
+
+.tag_list_box {
+  height: 400px;
+}
+
+.category_list_box {
+  height: 250px;
+}
+
+.guide_list_box {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+  word-break: all;
+  margin: 10px;
+  padding: 20px;
+}
+
+.tag_list_box::-webkit-scrollbar,
+.category_list_box::-webkit-scrollbar,
+.guide_list_box::-webkit-scrollbar {
+  width: 0px;
 }

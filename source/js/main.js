@@ -43,27 +43,29 @@ function my_load() {
 
   var menu_guide = document.getElementById("menu_guide");
   var guide_box = document.getElementById("guide_box");
-  menu_guide.addEventListener("click", function() {
-    var right = $(guide_box).css("right");
-    console.log(right);
-    if (show_guide == -1) {
-      if (right == "-400px") {
-        $(guide_box).css("right", "0px");
-        show_guide = 1;
+  if (menu_guide != null && guide_box != null) {
+    menu_guide.addEventListener("click", function() {
+      var right = $(guide_box).css("right");
+      console.log(right);
+      if (show_guide == -1) {
+        if (right == "-400px") {
+          $(guide_box).css("right", "0px");
+          show_guide = 1;
+        } else {
+          $(guide_box).css("right", "-400px");
+          show_guide = 0;
+        }
       } else {
-        $(guide_box).css("right", "-400px");
-        show_guide = 0;
+        if (show_guide == 0) {
+          $(guide_box).css("right", "0px");
+          show_guide = 1;
+        } else {
+          $(guide_box).css("right", "-400px");
+          show_guide = 0;
+        }
       }
-    } else {
-      if (show_guide == 0) {
-        $(guide_box).css("right", "0px");
-        show_guide = 1;
-      } else {
-        $(guide_box).css("right", "-400px");
-        show_guide = 0;
-      }
-    }
-  });
+    });
+  }
 
   var search_input = document.getElementById("search_input");
   var search_result_box = document.getElementById("search_result_box");
