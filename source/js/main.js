@@ -92,15 +92,15 @@ function my_load() {
 }
 
 function my_resize() {
-  console.log("resize");
-
   cur_width = document.body.clientWidth;
 }
 
 function my_scroll() {
   console.log("scroll");
-
-  change_guide();
+  if (typeof change_guide != "undefined") {
+    // 如果有附加导航
+    change_guide();
+  }
 }
 
 function switch_box(box, mode) {
@@ -112,8 +112,4 @@ function switch_box(box, mode) {
       $(box).css("display", "none");
     }
   }
-}
-
-function my_resize() {
-  console.log("resize");
 }

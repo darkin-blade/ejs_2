@@ -15,7 +15,7 @@ function create_guide()
 
   var guide_title = document.createElement("a");// 跳转至标题
   guide_title.innerText = document.getElementById("post_title").innerText;
-  guide_title.innerHTML = "<div id='guide_title'>" + guide_title.innerHTML + "</div>";
+  guide_title.innerHTML = "<span id='guide_title' class='guide_item'>" + guide_title.innerHTML + "</span>";
 
   dfs_h(document.body);// 搜索所有的1,2,3级标题
     

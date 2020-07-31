@@ -48,7 +48,7 @@ function my_search (path, search_id, content_id) {
               index_content = data_content.indexOf(keyword);
 
               if (index_title < 0 && index_content < 0) {// 关键字没有出现过
-                console.log(data_title + ":[" + index_title + ", " + index_content + "]")
+                // console.log(data_title + ":[" + index_title + ", " + index_content + "]")
                 isMatch = false;
               } else {
                 if (index_content < 0) {

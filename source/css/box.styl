@@ -93,17 +93,17 @@
   position: fixed;
   top: 70px;
   width: 600px;
-  padding: 30px;
+  padding: 15px;
   display: none;
 }
 
 .search_result_box {
   /* 搜索结果框 */
   left: 450px;
-  position: fixed;
   top: 70px;
   width: 600px;
-  padding: 30px;
+  padding: 15px;
+  position: fixed;
   
   overflow-y: scroll;
   max-height: 700px;
@@ -133,7 +133,6 @@
 
 .tag_list_box,
 .category_list_box {
-  margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
   padding: 20px;
@@ -151,4 +150,12 @@
 .category_list_box::-webkit-scrollbar,
 .guide_list_box::-webkit-scrollbar {
   width: 0px;
+}
+
+.line_box {
+  height: 1px;
+  background-color: var(--shadow_3);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }

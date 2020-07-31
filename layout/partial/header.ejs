@@ -22,21 +22,28 @@
 <div class="category_box shadow_box" id="category_box"></div>
 
 <% if (is_post()) { %>
+  <!-- 附加导航 -->
   <div class="guide_box shadow_box" id="guide_box">
     <div class="tag_list_box" id="tag_list_box">
-      <span>tags</span><br>
+      <span class="guide_item">tags</span>
       <% if (page.tags) { %>
         <% page.tags.forEach(function (tag) { %>
+          <span class="tag_item">
             <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+          </span>
         <% }) %>
       <% } %>
     </div>
+
+    <div class="line_box"></div>
     
     <div class="category_list_box" id="category_list_box">
-      <span>categories</span><br>
+      <span class="guide_item">categories</span>
       <% if (page.categories) { %>
         <% page.categories.forEach(function (category) { %>
+          <span class="category_item">
             <a href="<%- url_for(category.path) %>"><%- category.name %></a>
+          </span>
         <% }) %>
       <% } %>
     </div>
