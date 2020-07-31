@@ -29,7 +29,7 @@ a {
 .archive_title {
   /* 文章标题 */
   font-family: 'varela';
-  color: var(--text_2);
+  color: var(--text_3);
   font-weight: bold;
   font-size: large;
   float: left;
@@ -49,7 +49,7 @@ a {
     color: var(--web);
   }
   font-family: 'varela';
-  background-color: var(--text_2);
+  background-color: var(--text_3);
   border-radius: 5px;
   padding: 3px;
   margin-bottom: 1px;
@@ -62,11 +62,50 @@ a {
   /* 附加导航的小标题 */
   padding: 0;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   display: block;
   
   font-weight: bold;
   font-family: 'varela';
-  color: var(--text_3);
+  color: var(--text_4);
   font-size: large;
+}
+
+.guide_1,
+.guide_2,
+.guide_3,
+.guide_4,
+.guide_5 {
+  color: var(--shadow_6);
+  border-left: 3px solid rgba(0, 0, 0, 0);
+  border-right: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.guide_1 {
+  margin-left: 0px;
+}
+
+.guide_2 {
+  margin-left: 10px;
+}
+
+.guide_3 {
+  margin-left: 20px;
+}
+
+.guide_4 {
+  margin-left: 30px;
+}
+
+.guide_5 {
+  margin-left: 40px;
+}
+
+.guide_active {
+  border-right: 3px solid var(--text_1);
+  border-left: 3px solid var(--text_3);
+  background-color: var(--text_1);
 }

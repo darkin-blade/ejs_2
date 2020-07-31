@@ -89,10 +89,72 @@ function my_load() {
 
   my_resize();
   my_scroll();
+  if (cur_width > 1800) {
+    // 自动弹出guide
+    menu_guide.click();
+  }
 }
 
 function my_resize() {
   cur_width = document.body.clientWidth;
+
+  var menu_preview = document.getElementById("menu_preview");
+  var menu_tags = document.getElementById("menu_tags");
+  var menu_categories = document.getElementById("menu_categories");
+  var search_input_box = document.getElementById("search_input_box");
+  // var menu_home = document.getElementById("menu_home");
+  // var menu_archive = document.getElementById("menu_archive");
+  // var menu_guide = document.getElementById("menu_guide");
+  var menu_next = document.getElementById("menu_next");
+
+  var tag_box = document.getElementById("tag_box");
+  var category_box = document.getElementById("category_box");
+  var search_result_box = document.getElementById("search_result_box");
+
+  console.log(cur_width);
+  if (cur_width > 1090) {// 7 * 120 + 250
+    // 完整显示
+    $(menu_preview).css("display", "block");
+    $(menu_tags).css("display", "block");
+    $(menu_categories).css("display", "block");
+    $(search_input_box).css("display", "block");
+    $(menu_next).css("display", "block");
+    $(tag_box).css("left", "120px");
+    $(category_box).css("left", "240px");
+    $(search_result_box).css("left", "360px");
+  } else if (cur_width > 870) {// 2 * 120 + 630
+    // 不显示上下页
+    $(menu_preview).css("display", "none");
+    $(menu_tags).css("display", "block");
+    $(menu_categories).css("display", "block");
+    $(search_input_box).css("display", "block");
+    $(menu_next).css("display", "none");
+    $(tag_box).css("left", "0px");
+    $(category_box).css("left", "120px");
+    $(search_result_box).css("left", "240px");
+  } else if (cur_width > 750) {// 1 * 120 + 630
+    // 不显示搜索
+    $(menu_preview).css("display", "none");
+    $(menu_tags).css("display", "block");
+    $(menu_categories).css("display", "block");
+    $(search_input_box).css("display", "none");
+    $(menu_next).css("display", "none");
+    $(tag_box).css("left", "0px");
+    $(category_box).css("left", "120px");
+    $(search_result_box).css("left", "240px");
+  } else if (cur_width > 360) {
+    // 只显示home, archive, guide
+    $(menu_preview).css("display", "none");
+    $(menu_tags).css("display", "none");
+    $(menu_categories).css("display", "none");
+    $(search_input_box).css("display", "none");
+    $(menu_next).css("display", "none");
+    $(tag_box).css("left", "0px");
+    $(category_box).css("left", "120px");
+    $(search_result_box).css("left", "240px");
+  } else {
+    // 不处理
+  }
 }
 
 function my_scroll() {
@@ -105,7 +167,13 @@ function my_scroll() {
 
 function switch_box(box, mode) {
   // 必须使用匿名函数传参
-  if (cur_width > 800) {
+  var min_width = 0;
+  if (box.id == "search_result_box") {
+    min_width = 840;
+  } else {
+    min_width = 720;
+  }
+  if (cur_width > min_width) {
     if (mode == 1) {// show
       $(box).css("display", "block");
     } else {

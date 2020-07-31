@@ -48,17 +48,18 @@
   /* 顶部菜单 */
   width: 100%;
   height: 70px;
-  background-color: var(--text_3);
+  background-color: var(--text_4);
 
   position: fixed;
   overflow: hidden;
   top: 0px;
+  z-index: 1;
 }
 
 .menu_item_box {
   /* 菜单项 */
   height: 30px;
-  width: 150px;
+  width: 120px;
   padding-top: 25px;
   padding-bottom: 15px;
 
@@ -70,7 +71,7 @@
   display: block;
   cursor: pointer;
   &:hover {
-    background-color: var(--text_4);
+    background-color: var(--text_5);
   }
 }
 
@@ -97,9 +98,17 @@
   display: none;
 }
 
+.tag_box {
+  left: 120px;
+}
+
+.category_box {
+  left: 240px;
+}
+
 .search_result_box {
   /* 搜索结果框 */
-  left: 450px;
+  left: 360px;
   top: 70px;
   width: 600px;
   padding: 15px;
@@ -108,14 +117,6 @@
   overflow-y: scroll;
   max-height: 700px;
   display: none;
-}
-
-.tag_box {
-  left: 150px;
-}
-
-.category_box {
-  left: 300px;
 }
 
 .guide_box {
@@ -135,14 +136,19 @@
 .category_list_box {
   margin-left: 10px;
   margin-right: 10px;
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .guide_list_box {
   flex: 1 1 auto;
   overflow-y: scroll;
   word-break: all;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   padding: 20px;
 }
 

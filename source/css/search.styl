@@ -6,12 +6,18 @@
   padding: 8px 12px;
   
   border-radius: 4px;
-  border: 1px solid #CCC;
-  color: #666;
-  font-size: 14px;
+  border: 2px solid var(--web);
+  color: var(--web);
+  font-size: medium;
+  background-color: var(--text_5);
   &::-webkit-search-cancel-button {
     // 关闭按钮
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
     cursor: pointer;
+    background: url("/img/close.png") no-repeat center;
+    background-size: 100% 100%;
   }
 }
 
@@ -40,7 +46,7 @@
   font-weight: bold;
   font-family: 'varela';
   text-decoration: none;
-  color: var(--text_2);
+  color: var(--text_3);
 }
 
 .search_highlight {
