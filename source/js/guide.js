@@ -116,4 +116,72 @@ function dfs_h(my_node) {
   }
 }
 
-create_guide();
+function change_guide() {
+  var w_top = $(window).scrollTop();
+  var guide_1 = null; // 待修改的索引
+  var guide_2 = null;
+  var guide_3 = null;
+  var guide_4 = null;
+  var guide_5 = null;
+
+  for (var i = 0; i < document.h_index; i ++) { // 从上往下遍历
+    var this_section = document.getElementById("section_" + i);
+    var temp_offset = $("#section_" + i).offset().top - w_top;
+    // console.log(i, temp_offset);
+    if (temp_offset > 5) break;// 未到达的section
+    if (this_section.className.match("section_1") != null) { // 有可能会有其他class名,比如使用了mathjax
+      guide_1 = document.getElementById("guide_" + i);// 注意id寻找
+      guide_2 = null;
+      guide_3 = null;
+      guide_4 = null;
+      guide_5 = null;
+    } else if (this_section.className.match("section_2") != null) {
+      guide_2 = document.getElementById("guide_" + i);
+      guide_3 = null;
+      guide_4 = null;
+      guide_5 = null;
+    } else if (this_section.className.match("section_3") != null) {
+      guide_3 = document.getElementById("guide_" + i);
+      guide_4 = null;
+      guide_5 = null;
+    } else if (this_section.className.match("section_4") != null) {
+      guide_4 = document.getElementById("guide_" + i);
+      guide_5 = null;
+    } else if (this_section.className.match("section_5") != null) {
+      guide_5 = document.getElementById("guide_" + i);
+    }
+  }
+
+  // 进行高亮
+  for (var i = 0; i < document.h_index; i ++)// h_index是section/guide的总数
+  {
+    var this_guide = document.getElementById("guide_" + i);
+    if ((this_guide == guide_1)
+      ||(this_guide == guide_2)
+      ||(this_guide == guide_3)
+      ||(this_guide == guide_4)
+      ||(this_guide == guide_5)) {
+      if (this_guide.className.match("active") == null) {// 本应该高亮而没有高亮
+        $(this_guide).toggleClass("guide_active");// 开启active属性
+      }
+    } else {
+      if (this_guide.className.match("active") != null) {// 本不应该高亮而高亮了
+        $(this_guide).toggleClass("guide_active");// 关闭active属性
+      }
+    }
+  }
+
+  // 缩进修改
+  var root_guide = document.root_guide;
+  for (var i = 0; i < root_guide.length; i ++) {
+    if (root_guide[i].cur.className.match("guide_active") != null) {// 被高亮
+      for (var j = 0; j < root_guide[i].child.length; j ++) {
+        $(root_guide[i].child[j]).css("display", "block");
+      }
+    } else {
+      for (var j = 0; j < root_guide[i].child.length; j ++) {
+        $(root_guide[i].child[j]).css("display", "none");
+      }
+    }
+  }
+}

@@ -36,6 +36,11 @@ function my_load() {
     switch_box(category_box, 0);
   });
 
+  var menu_home = document.getElementById("menu_home");
+  menu_home.addEventListener("click", function() {
+    window.location.href = "/";
+  });
+
   var menu_archive = document.getElementById("menu_archive");
   menu_archive.addEventListener("click", function() {
     window.location.href = "/archives";
@@ -76,13 +81,26 @@ function my_load() {
     switch_box(search_result_box, 0);
   });
 
-  // 获取窗口初始参数
-
-  cur_width = document.body.clientWidth;
-  
   // 搜索功能
 
   my_search("/search.xml", "search_input", "search_result_list");
+
+  // 初始化函数
+
+  my_resize();
+  my_scroll();
+}
+
+function my_resize() {
+  console.log("resize");
+
+  cur_width = document.body.clientWidth;
+}
+
+function my_scroll() {
+  console.log("scroll");
+
+  change_guide();
 }
 
 function switch_box(box, mode) {
