@@ -1,5 +1,10 @@
 /* 文章样式 */
 
+:root {
+  --size_1: large;
+  --size_2: 40px;
+}
+
 embed {
   width: 80%;
   margin-left: 10%;
@@ -51,7 +56,7 @@ strong {
 .main_box ul,
 .main_box ol,
 .main_box table {
-  font-size: large;
+  font-size: var(--size_1);
   code {
     /* 行间代码 */
     font-family: monospace;

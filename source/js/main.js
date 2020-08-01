@@ -123,11 +123,13 @@ function my_resize() {
   // var menu_home = document.getElementById("menu_home");
   // var menu_archive = document.getElementById("menu_archive");
   // var menu_guide = document.getElementById("menu_guide");
+  var menu_site = document.getElementById("menu_site");
   var menu_next = document.getElementById("menu_next");
 
   var tag_box = document.getElementById("tag_box");
   var category_box = document.getElementById("category_box");
   var search_result_box = document.getElementById("search_result_box");
+  var site_box = document.getElementById("site_box");
 
   if (cur_width > 1090) {// 7 * 120 + 250
     // 完整显示
@@ -139,6 +141,7 @@ function my_resize() {
     $(tag_box).css("left", "120px");
     $(category_box).css("left", "240px");
     $(search_result_box).css("left", "360px");
+    $(site_box).css("right", "120px");
   } else if (cur_width > 870) {// 2 * 120 + 630
     // 不显示上下页
     $(menu_preview).css("display", "none");
@@ -149,6 +152,7 @@ function my_resize() {
     $(tag_box).css("left", "0px");
     $(category_box).css("left", "120px");
     $(search_result_box).css("left", "240px");
+    $(site_box).css("right", "0px");
   } else if (cur_width > 750) {// 1 * 120 + 630
     // 不显示搜索
     $(menu_preview).css("display", "none");
@@ -159,8 +163,9 @@ function my_resize() {
     $(tag_box).css("left", "0px");
     $(category_box).css("left", "120px");
     $(search_result_box).css("left", "240px");
+    $(site_box).css("right", "0px");
   } else if (cur_width > 480) {
-    // 只显示home, archive, guide, github
+    // 只显示home, archive, site
     $(menu_preview).css("display", "none");
     $(menu_tags).css("display", "none");
     $(menu_categories).css("display", "none");
@@ -169,6 +174,7 @@ function my_resize() {
     $(tag_box).css("left", "0px");
     $(category_box).css("left", "120px");
     $(search_result_box).css("left", "240px");
+    $(site_box).css("right", "0px");
   } else {
     // 不处理
   }
