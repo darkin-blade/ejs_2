@@ -105,6 +105,7 @@ function my_load() {
       menu_guide.click();
     }
   }
+  change_scale();// 根据不同设备进行放缩
 
   // 手动添加监听, 防止初始化时报错
 
@@ -206,6 +207,16 @@ function switch_box(box, mode) {
     } else {
       $(box).css("display", "none");
     }
+  }
+}
+
+function change_scale() {// 根据不同的设备进行缩放
+  if (navigator.userAgent.match("Android")) {// android
+    document.body.style.zoom = 1.6;
+  } else if (navigator.userAgent.match("Windows")) {// windows
+    document.body.style.zoom = 0.85;
+  } else if (navigator.userAgent.match("Mac")) {// macOS
+    document.body.style.zoom = 0.8;
   }
 }
 
