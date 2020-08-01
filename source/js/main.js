@@ -37,6 +37,11 @@ function my_load() {
     switch_box(category_box, 0);
   });
 
+  var menu_github = document.getElementById("menu_github");
+  menu_github.addEventListener("click", function() {
+    window.location.href = "https://github.com/niabie";
+  });
+
   var menu_home = document.getElementById("menu_home");
   menu_home.addEventListener("click", function() {
     window.location.href = "/";
@@ -152,8 +157,8 @@ function my_resize() {
     $(tag_box).css("left", "0px");
     $(category_box).css("left", "120px");
     $(search_result_box).css("left", "240px");
-  } else if (cur_width > 360) {
-    // 只显示home, archive, guide
+  } else if (cur_width > 480) {
+    // 只显示home, archive, guide, github
     $(menu_preview).css("display", "none");
     $(menu_tags).css("display", "none");
     $(menu_categories).css("display", "none");

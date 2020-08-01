@@ -35,14 +35,11 @@ function create_guide()
   
   guide_list_box.appendChild(guide_title);
   document.querySelector("#guide_title").onclick = function() {
-    document.querySelector("#post_title").scrollIntoView({
-      block: "start",
-      behavior: "smooth"
-    });
+    scroll_to(document.querySelector("#post_title"));
   };
   guide_list_box.appendChild(right_guide);
   for (var i = 0; i < document.h_index; i ++) {
-    document.querySelector("#guide_" + i).setAttribute("onclick", "add_scroll(" + i + ")");
+    document.querySelector("#guide_" + i).setAttribute("onclick", "section_scroll(" + i + ")");
   }
 
   find_root();
@@ -80,12 +77,22 @@ function find_root() {// 找出所有根guide
   }
 }
 
-function add_scroll (i)// 注意i的值
+function section_scroll(i)// 注意i的值
 {
-  document.querySelector("#section_" + i).scrollIntoView({
-    block: "start",
+  scroll_to(document.querySelector("#section_" + i));
+}
+
+function scroll_to(element) {
+  // element.scrollIntoView({
+  //   block: "start",
+  //   behavior: "smooth"
+  // });
+  var header_offset = 70;
+  var element_position = element.getBoundingClientRect().top;
+  window.scrollTo({
+    top: element_position - header_offset,
     behavior: "smooth"
-  });
+  })
 }
 
 // 深度优先搜索

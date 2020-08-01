@@ -13,18 +13,20 @@
 </head>
 
 <body onload="my_load()"">
+
   <div class="web_name_box">
     <a class="web_name" href="<%- url_for(theme.menu.Home) %>"><%= config.title %></a>
   </div>
+  
+  <%- partial('partial/header') %>
+  <%- partial('partial/latex') %>
+
+  <%- body %>
 
   <%- js('js/main') %>
   <%- js('js/search') %>
   <%- js('js/highlight') %>
 
-  <%- partial('partial/header') %>
-  <%- partial('partial/latex') %>
-
-  <%- body %>
 </body>
 
 </html>
