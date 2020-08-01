@@ -60,7 +60,6 @@ function dfs_c(my_node, found) {
     }
   }
 }
-
 function show_language() {
   document.querySelectorAll(".highlight").forEach(function(my_node) {
     var temp_class = my_node.className.replace(/highlight/, "");

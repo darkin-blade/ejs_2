@@ -4,6 +4,14 @@
   <span class="post_title" id="post_title"><%= page.title %></span>
   <br>
   <span class="post_date"><%- date(page.date, "YYYY-MM-DD") %></span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
 
   <%- page.content %>
 

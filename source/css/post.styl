@@ -1,8 +1,10 @@
 /* 文章样式 */
 
 :root {
-  --size_1: large;
-  --size_2: 40px;
+  --size_1: 1rem;
+  --size_2: 1.1rem;
+  --size_3: 1.2rem;
+  --size_4: 2.5rem;
 }
 
 embed {
@@ -56,7 +58,7 @@ strong {
 .main_box ul,
 .main_box ol,
 .main_box table {
-  font-size: var(--size_1);
+  font-size: var(--size_3);
   code {
     /* 行间代码 */
     font-family: monospace;
@@ -64,4 +66,9 @@ strong {
     word-break: break-all;
     background-color: var(--shadow_3);
   }
+}
+
+figure td > pre {
+  /* 代码字体大小 */
+  font-size: var(--size_1);
 }
