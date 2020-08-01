@@ -52,7 +52,6 @@ function my_load() {
   if (menu_guide != null && guide_box != null) {
     menu_guide.addEventListener("click", function() {
       var right = $(guide_box).css("right");
-      console.log(right);
       if (show_guide == -1) {
         if (right == "-400px") {
           $(guide_box).css("right", "0px");
@@ -79,8 +78,6 @@ function my_load() {
     switch_box(search_result_box, 1);
   });
   search_input.addEventListener("blur", function() {
-    console.log(mouse_element == search_result_box);
-    console.log(mouse_element);
     if (is_child(mouse_element, search_result_box)) {
       search_input.focus();
     } else {
@@ -125,7 +122,6 @@ function my_resize() {
   var category_box = document.getElementById("category_box");
   var search_result_box = document.getElementById("search_result_box");
 
-  console.log(cur_width);
   if (cur_width > 1090) {// 7 * 120 + 250
     // 完整显示
     $(menu_preview).css("display", "block");
@@ -172,7 +168,6 @@ function my_resize() {
 }
 
 function my_scroll() {
-  console.log("scroll");
   if (typeof change_guide != "undefined") {
     // 如果有附加导航
     change_guide();

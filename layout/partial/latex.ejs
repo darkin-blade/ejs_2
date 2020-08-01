@@ -62,12 +62,9 @@ if (page.latex == null) {
   // 删除<p>内部换行,使katex正确渲染
   $(document).ready(setTimeout(function()
   {
-    for (var i = 0; i < 2; i ++) {
-      if (i == 0) {
-        var all_text = document.querySelectorAll("div div div p");
-      } else {
-        var all_text = document.querySelectorAll("li li");
-      }
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
       all_text.forEach(function(temp_p) {
         temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
       });
@@ -91,12 +88,8 @@ if (page.latex == null) {
     });
 
     // 恢复回车
-    for (var i = 0; i < 2; i ++) {
-      if (i == 0) {
-        var all_text = document.querySelectorAll("div div div p");
-      } else {
-        var all_text = document.querySelectorAll("li li");
-      }
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
       all_text.forEach(function(temp_p) {
         temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
       });
