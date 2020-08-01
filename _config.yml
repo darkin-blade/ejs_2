@@ -1,12 +1,15 @@
 menu:
-  Home: /
-  Archives: /archives
-  Github: https://github.com/NiaBie
-  Link: /friends
-  Knife: /knife
-  Tags: /tags
-  Search: /search/search.html
-  Categories: /categories
+  home: /
+  archives: /archives
+  github: https://github.com/NiaBie
+  link: /friends
+  knife: /knife
+  search: /search/search.html
+  tags: /tags
+  categories: /categories
+
+post:
+  per_page: 20
 
 debug:
   enable: false

@@ -22,19 +22,19 @@
 
 <div class="site_box shadow_box" id="site_box">
   <span class="site_item">
-    <a href="<%- url_for(theme.menu.Home) %>">home</a>
+    <a href="<%- url_for(theme.menu.home) %>">home</a>
   </span>
   <span class="site_item">
-    <a href="<%- url_for(theme.menu.Archives) %>">archives</a>
+    <a href="<%- url_for(theme.menu.archives) %>">archives</a>
   </span>
   <span class="site_item">
-    <a href="<%- url_for(theme.menu.Github) %>">github</a>
+    <a href="<%- url_for(theme.menu.github) %>">github</a>
   </span>
   <span class="site_item">
-    <a href="<%- url_for(theme.menu.Knife) %>">knives</a>
+    <a href="<%- url_for(theme.menu.knife) %>">knives</a>
   </span>
   <span class="site_item">
-    <a href="<%- url_for(theme.menu.Link) %>">links</a>
+    <a href="<%- url_for(theme.menu.link) %>">links</a>
   </span>
 </div>
 
@@ -75,6 +75,7 @@
 
 <% if (page && page.posts && (!is_post())) { %>
   <!-- 不是文章页 -->
+
   <% if (page.total > 1) { %>
     <!-- 上一页 -->
     <% if (page.prev != 0) { %>
@@ -92,7 +93,6 @@
           });
       </script>
       <% } %>
-
   <% } %>
 
 <% } %>
