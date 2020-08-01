@@ -2,10 +2,27 @@
 
 <div class="main_box border_box">
 
+  <%
+  var post_index = page.current * page.per_page;
+  %>
+
+  <%
+  for (i in page) {
+  %>
+  <a><%- i %></a>
+  <a><%- page[i] %></a>
+  <a><%- hexo.config.per_page %></a>
+  <br>
+  <%
+  }
+  %>
+
   <% if (page.posts && page.posts.length > 0) { %>
     <% page.posts.each(function(post){ %><!-- 单个文章 -->
 
+      <% post_index ++ %>
       <div class="post_box">
+        <span class="archive_index"><%= post_index %>.</span>
         <a href="<%- url_for(post.path) %>" class="archive_title">
           <%- post.title %>
         </a>

@@ -37,19 +37,19 @@ function my_load() {
     switch_box(category_box, 0);
   });
 
-  var menu_github = document.getElementById("menu_github");
-  menu_github.addEventListener("click", function() {
-    window.location.href = "https://github.com/niabie";
+  var menu_site = document.getElementById("menu_site");
+  var site_box = document.getElementById("site_box");
+  menu_site.addEventListener("mousemove", function() {
+    switch_box(site_box, 1);
   });
-
-  var menu_home = document.getElementById("menu_home");
-  menu_home.addEventListener("click", function() {
-    window.location.href = "/";
+  menu_site.addEventListener("mouseleave", function() {
+    switch_box(site_box, 0);
   });
-
-  var menu_archive = document.getElementById("menu_archive");
-  menu_archive.addEventListener("click", function() {
-    window.location.href = "/archives";
+  site_box.addEventListener("mousemove", function() {
+    switch_box(site_box, 1);
+  });
+  site_box.addEventListener("mouseleave", function() {
+    switch_box(site_box, 0);
   });
 
   var menu_guide = document.getElementById("menu_guide");
@@ -101,7 +101,9 @@ function my_load() {
   my_highlight_start();// 代码块高亮
   if (cur_width > 1800) {
     // 自动弹出guide
-    menu_guide.click();
+    if (menu_guide != null) {
+      menu_guide.click();
+    }
   }
 
   // 手动添加监听, 防止初始化时报错

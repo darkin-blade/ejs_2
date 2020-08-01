@@ -12,6 +12,10 @@ var my_guide = new Array();
 function create_guide()
 {
   var guide_list_box = document.getElementsByClassName("guide_list_box")[0];
+  if (guide_list_box == null) {
+    // 该页面没有导航
+    return;
+  }
 
   var guide_title = document.createElement("a");// 跳转至标题
   guide_title.innerText = document.getElementById("post_title").innerText;

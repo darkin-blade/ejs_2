@@ -26,24 +26,33 @@ a {
   }
 }
 
+.archive_index {
+  /* 文章编号 */
+  font-family: 'varela';
+  font-size: large;
+}
+
 .archive_title {
   /* 文章标题 */
   font-family: 'varela';
   color: var(--text_3);
   font-weight: bold;
   font-size: large;
-  float: left;
 }
 
 .archive_date {
   /* 文章日期 */
   font-family: 'varela';
   font-size: large;
-  float: right;
+  text-align: right;
+  right: 0px;
+  /* 父元素必须是relative */
+  position: absolute;
 }
 
 .tag_item,
-.category_item {
+.category_item,
+.site_item {
   /* 关键词 */
   a {
     color: var(--web);
@@ -122,5 +131,5 @@ a {
 
 .post_date {
   /* 文章日期 */
-  font-size: medium;
+  font-size: large;
 }

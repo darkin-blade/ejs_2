@@ -13,14 +13,30 @@
   <% if (is_post()) { %>
     <div class="menu_item_box right" id="menu_guide">guide</div>
   <% } %>
-  <div class="menu_item_box right" id="menu_archive">archive</div>
-  <div class="menu_item_box right" id="menu_home">home</div>
-  <div class="menu_item_box right" id="menu_github">github</div>
+  <div class="menu_item_box right" id="menu_site">sites</div>
 </div>
 
 <div class="tag_box shadow_box" id="tag_box"></div>
 
 <div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="<%- url_for(theme.menu.Home) %>">home</a>
+  </span>
+  <span class="site_item">
+    <a href="<%- url_for(theme.menu.Archives) %>">archives</a>
+  </span>
+  <span class="site_item">
+    <a href="<%- url_for(theme.menu.Github) %>">github</a>
+  </span>
+  <span class="site_item">
+    <a href="<%- url_for(theme.menu.Knife) %>">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="<%- url_for(theme.menu.Link) %>">links</a>
+  </span>
+</div>
 
 <% if (is_post()) { %>
   <!-- 附加导航 -->
@@ -114,7 +130,7 @@
   categories_path.sort();
   for (var i = 0; i < categories_name.length; i ++)
   {
-    $("#category_box").append("<span class='tag_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
   }
 </script>
 

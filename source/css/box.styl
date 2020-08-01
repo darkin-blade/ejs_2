@@ -42,6 +42,8 @@
   /* 标题 */
   height: 30px;
   padding-top: 10px;
+  /* 为使子元素为absolute */
+  position: relative;
 }
 
 .menu_box {
@@ -90,10 +92,10 @@
 } 
 
 .tag_box,
-.category_box {
+.category_box,
+.site_box  {
   position: fixed;
   top: 70px;
-  width: 600px;
   padding: 15px;
   display: none;
   z-index: 1;
@@ -101,10 +103,18 @@
 
 .tag_box {
   left: 120px;
+  width: 600px;
 }
 
 .category_box {
   left: 240px;
+  width: 600px;
+}
+
+.site_box {
+  /* home, archive, github */
+  right: 120px;
+  width: 400px;
 }
 
 .search_result_box {
