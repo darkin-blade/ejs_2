@@ -26,6 +26,10 @@ strong {
   color: var(--text_2);
 }
 
+em {
+  color: var(--shadow_4);
+}
+
 .main_box > table {
   border-collapse: collapse;
   width: 100%;
@@ -54,11 +58,19 @@ strong {
   background-color: var(--shadow_3);
 }
 
+.main_box h1,
+.main_box h2,
+.main_box h3,
+.main_box h4,
+.main_box h5,
 .main_box > p,
 .main_box ul,
 .main_box ol,
+.main_box blockquote,
 .main_box table {
-  font-size: var(--size_3);
+  a {
+    color: var(--text_4);
+  }
   code {
     /* 行间代码 */
     font-family: monospace;
@@ -66,6 +78,14 @@ strong {
     word-break: break-all;
     background-color: var(--shadow_3);
   }
+}
+
+.main_box > p,
+.main_box ul,
+.main_box ol,
+.main_box blockquote ,
+.main_box table {
+  font-size: var(--size_3);
 }
 
 figure td > pre {
