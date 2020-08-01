@@ -7,6 +7,7 @@ var h_struct = {
   name: ""// innerText
 };
 var my_guide = new Array();
+var vertical_offset = 70;// 垂直方向的偏移
 
 // 创建对象
 function create_guide()
@@ -91,10 +92,9 @@ function scroll_to(element) {
   //   block: "start",
   //   behavior: "smooth"
   // });
-  var header_offset = 70;
-  var element_position = element.getBoundingClientRect().top;
+  var element_position = $(element).offset().top;
   window.scrollTo({
-    top: element_position - header_offset,
+    top: element_position - vertical_offset,
     behavior: "smooth"
   })
 }
@@ -139,7 +139,7 @@ function change_guide() {
     var this_section = document.getElementById("section_" + i);
     var temp_offset = $("#section_" + i).offset().top - w_top;
     // console.log(i, temp_offset);
-    if (temp_offset > 5) break;// 未到达的section
+    if (temp_offset > 5 + vertical_offset) break;// 未到达的section(加上偏移)
     if (this_section.className.match("section_1") != null) { // 有可能会有其他class名,比如使用了mathjax
       guide_1 = document.getElementById("guide_" + i);// 注意id寻找
       guide_2 = null;
