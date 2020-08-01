@@ -8,9 +8,6 @@ menu:
   tags: /tags
   categories: /categories
 
-post:
-  per_page: 20
-
 debug:
   enable: false
 
