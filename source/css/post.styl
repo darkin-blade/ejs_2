@@ -1,1 +1,48 @@
 /* 文章样式 */
+
+embed {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 600px;
+}
+
+blockquote {
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 2px;
+  background-color: var(--shadow_2);
+}
+
+strong {
+  color: var(--text_2);
+}
+
+.main_box > table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.main_box > table thead tr {
+  background-color: var(--shadow_2);
+}
+
+.main_box > table th,
+.main_box > table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  // 防止latex公式过挤
+  border-left: 1px solid var(--shadow_5);
+  border-right: 1px solid var(--shadow_5);
+  border-top: 1px solid var(--shadow_5);
+  border-bottom: 1px solid var(--shadow_5);
+}
+
+.main_box > table tr {
+  transition-duration: 0.5s;
+}
+
+.main_box > table tr:hover {
+  background-color: var(--shadow_3);
+}
