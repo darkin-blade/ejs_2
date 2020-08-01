@@ -1,5 +1,6 @@
 var cur_width = 0;
 var show_guide = -1;
+var mouse_element = document.body;// 鼠标所在的元素
 
 function my_load() {
   console.log("load");
@@ -78,7 +79,13 @@ function my_load() {
     switch_box(search_result_box, 1);
   });
   search_input.addEventListener("blur", function() {
-    switch_box(search_result_box, 0);
+    console.log(mouse_element == search_result_box);
+    console.log(mouse_element);
+    if (is_child(mouse_element, search_result_box)) {
+      search_input.focus();
+    } else {
+      switch_box(search_result_box, 0);
+    }
   });
 
   // 搜索功能
@@ -89,10 +96,17 @@ function my_load() {
 
   my_resize();
   my_scroll();
+  my_highlight_start();// 代码块高亮
   if (cur_width > 1800) {
     // 自动弹出guide
     menu_guide.click();
   }
+
+  // 手动添加监听, 防止初始化时报错
+
+  document.body.onresize = my_resize;
+  document.body.onscroll = my_scroll;
+  document.body.onmouseover = my_mouseover;
 }
 
 function my_resize() {
@@ -165,6 +179,11 @@ function my_scroll() {
   }
 }
 
+function my_mouseover() {
+  var event = window.event;
+  mouse_element = event.target;
+}
+
 function switch_box(box, mode) {
   // 必须使用匿名函数传参
   var min_width = 0;
@@ -179,5 +198,16 @@ function switch_box(box, mode) {
     } else {
       $(box).css("display", "none");
     }
+  }
+}
+
+function is_child(child, parent) {
+  // 判断child是否是parent的子元素
+  if (child == parent) {
+    return true;
+  } else if (child == null) {
+    return false 
+  } else {
+    return is_child(child.parentElement, parent);
   }
 }

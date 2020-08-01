@@ -12,13 +12,14 @@
   <%- css('css/main') %>
 </head>
 
-<body onload="my_load()" onresize="my_resize()" onscroll="my_scroll()">
+<body onload="my_load()"">
   <div class="web_name_box">
     <a class="web_name" href="<%- url_for(theme.menu.Home) %>"><%= config.title %></a>
   </div>
 
   <%- js('js/main') %>
   <%- js('js/search') %>
+  <%- js('js/highlight') %>
 
   <%- partial('partial/header') %>
   <%- partial('partial/latex') %>

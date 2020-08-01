@@ -46,3 +46,17 @@ strong {
 .main_box > table tr:hover {
   background-color: var(--shadow_3);
 }
+
+.main_box > p,
+.main_box ul,
+.main_box ol,
+.main_box table {
+  font-size: large;
+  code {
+    /* 行间代码 */
+    font-family: monospace;
+    font-size: inhert;
+    word-break: break-all;
+    background-color: var(--shadow_3);
+  }
+}
