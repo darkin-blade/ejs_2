@@ -92,7 +92,7 @@ function my_load() {
 
   // 搜索功能
 
-  my_search("/search.xml", "search_input", "search_result_list");
+  my_search("/search.xml");
 
   // 初始化函数
 
