@@ -27,11 +27,21 @@ function my_search(path) {
       search_input.addEventListener('input', function() {
         get_match(1);
       });
+
+      var filter_1 = document.getElementById("search_filter_1");
+      var filter_2 = document.getElementById("search_filter_2");
+      filter_1.addEventListener('click', function() {
+        get_match(2);
+      });
+      filter_2.addEventListener('click', function() {
+        get_match(1);
+      });
     }
   });
 }
 
 function get_match(mode) {
+  console.log("match " + mode);
   if (mode == 1) {
     // match content and title
 
@@ -98,7 +108,7 @@ function get_match(mode) {
             match_content = match_content.replace(regS, "<strong class='search_highlight'>" + keyword + "</strong>");
           });
 
-          str += "<a class=\"search-result\" href='" + unescape(decodeURI(data_url)) + "'><p>" + match_content + "...</p></a>"
+          str += "<a href='" + unescape(decodeURI(data_url)) + "'><p>" + match_content + "...</p></a>"
         }
         str += "";
       }
@@ -111,5 +121,60 @@ function get_match(mode) {
     search_result_list.innerHTML = str;
   } else if (mode == 2) {
     // only title
+    var str = '';
+    var keywords = search_input.value.trim().toLowerCase().split(/[\s\-]+/);// 搜索的关键字(去除头尾空格),用`+`分割
+    search_result_list.innerHTML = "";// 清空之前结果
+    if (search_input.value.trim().length <= 0) {// 如果没有输入关键字
+      return;
+    }
+    datas.forEach(function (data, index_data) {// 对每一篇文章进行匹配
+      var isMatch = true;
+      if (!data.title || data.title.trim() === '') {// 文章没有标题
+        data.title = "Untitled";
+      }
+      var data_title = data.title.trim().toLowerCase();
+      if (index_data == 0) {
+        // console.log("文章内容: " + data_content);
+      }
+      var data_url = data.url;
+      var index_title = -1;
+      var first_occur = -1;
+      if (data_title !== '') {// 文章title非空
+        keywords.forEach(function (keyword, i) {// 对每个关键字查找第一次出现的位置, (当前元素, 索引, 正在操作的数组)
+          index_title = data_title.indexOf(keyword);// 搜索关键字第一次出现的位置
+
+          if (index_title < 0) {// 关键字没有出现过
+            isMatch = false;
+          } else {
+            if (index_title < 0) {
+              index_title = 0;
+            }
+            if (i == 0) {// 如果是第一次出现
+              first_occur = index_title;// 记录第一次出现的位置
+            }
+          }
+        });
+      } else {// 文章title为空
+        isMatch = false;
+      }
+      if (isMatch) {
+        // 显示文章标题
+        if (first_occur >= 0) {          
+          keywords.forEach(function (keyword) {// 高亮关键字
+            var regS = new RegExp(keyword, "gi");
+            data_title = data_title.replace(regS, "<strong class='search_highlight'>" + keyword + "</strong>");
+          });
+          
+          str += "<a class='search_result_title_only' href='" + unescape(decodeURI(data_url)) + "'><p>" + data_title + "</p></a>";
+        }
+        str += "";
+      }
+    });
+    str += "";
+    // console.log("搜所结果总长度" + str.length);
+    if (str.length == 0) {// 判断有没有搜索结果
+      search_result_list.innerHTML = "<span class='search_result_title'>Not found<span>";
+    }
+    search_result_list.innerHTML = str;
   }
 }
