@@ -214,7 +214,7 @@ function change_scale() {// 根据不同的设备进行缩放
   if (navigator.userAgent.match("Android")) {// android
     document.body.style.zoom = 1.6;
   } else if (navigator.userAgent.match("Windows")) {// windows
-    document.body.style.zoom = 0.85;
+    document.body.style.zoom = 0.8;
   } else if (navigator.userAgent.match("Mac")) {// macOS
     document.body.style.zoom = 0.8;
   }

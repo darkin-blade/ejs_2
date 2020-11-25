@@ -1,22 +1,24 @@
 <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title"><%= page.title %></span>
-  <br>
-  <span class="post_date"><%- date(page.date, "YYYY-MM-DD") %></span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title"><%= page.title %></span>
+    <br>
+    <span class="post_date"><%- date(page.date, "YYYY-MM-DD") %></span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <%- page.content %>
-
-  <%- js('js/guide') %>
-  <script>
-    create_guide();
-  </script>
+    <%- page.content %>
+  
+    <%- js('js/guide') %>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>

@@ -1,23 +1,26 @@
 <!-- 文章列表 -->
 
-<div class="main_box border_box">
 
-  <% var post_index = config.index_generator.per_page * (page.current - 1) %>
-
-  <% if (page.posts && page.posts.length > 0) { %>
-    <% page.posts.each(function(post){ %><!-- 单个文章 -->
-
-      <% post_index ++ %>
-      <div class="post_box">
-        <span class="archive_index"><%- post_index %>.</span>
-        <a href="<%- url_for(post.path) %>" class="archive_title">
-          <%- post.title %>
-        </a>
-        <span class="archive_date"><%= date(post.date, "YYYY-MM-DD") %></span>
-        <br>
-      </div>
-              
-    <% }) %>
-  <% } %>
-
+<div class="main_container">
+  <div class="main_box border_box">
+  
+    <% var post_index = config.index_generator.per_page * (page.current - 1) %>
+  
+    <% if (page.posts && page.posts.length > 0) { %>
+      <% page.posts.each(function(post){ %><!-- 单个文章 -->
+  
+        <% post_index ++ %>
+        <div class="post_box">
+          <span class="archive_index"><%- post_index %>.</span>
+          <a href="<%- url_for(post.path) %>" class="archive_title">
+            <%- post.title %>
+          </a>
+          <span class="archive_date"><%= date(post.date, "YYYY-MM-DD") %></span>
+          <br>
+        </div>
+                
+      <% }) %>
+    <% } %>
+  
+  </div>
 </div>
